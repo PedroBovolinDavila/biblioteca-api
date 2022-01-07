@@ -7,6 +7,10 @@ class verifyAdmin {
 
     const selectedUser = await User.findById(adminId);
 
+    if (!selectedUser) {
+      return res.status(401).send();
+    }
+
     if (selectedUser.isAdmin) {
       next();
     } else {
