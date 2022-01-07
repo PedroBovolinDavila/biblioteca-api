@@ -42,7 +42,7 @@ class BookController {
       const book = await Book.create({
         name,
         author,
-        desc: desc ? desc : 'teste',
+        desc: desc ? desc : 'Sem descrição disponivel',
         buyLink
       });
 
@@ -61,7 +61,7 @@ class BookController {
       const updatedBook = await Book.findByIdAndUpdate(bookId, {
         name,
         author,
-        desc: desc ? desc : '',
+        desc: desc ? desc : 'Sem descrição disponivel',
         buyLink
       });
 
