@@ -3,6 +3,7 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 
 import userRoutes from './routes/userRoutes';
+import adminRoutes from './routes/adminRoutes';
 
 export class App {
 	public app: express.Application;
@@ -38,5 +39,6 @@ export class App {
 
 	private routes(): void {
 		this.app.use('/users', userRoutes);
+		this.app.use('/admin', adminRoutes);
 	}
 }
