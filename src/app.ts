@@ -2,9 +2,11 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 
+import verifyAdmin from './middleware/verifyAdmin';
+
 import userRoutes from './routes/userRoutes';
 import adminRoutes from './routes/adminRoutes';
-
+import bookRoutes from './routes/bookRoutes';
 export class App {
 	public app: express.Application;
 	private port = process.env.PORT || 3333;
@@ -40,5 +42,6 @@ export class App {
 	private routes(): void {
 		this.app.use('/users', userRoutes);
 		this.app.use('/admin', adminRoutes);
+		this.app.use('/books', verifyAdmin.index, bookRoutes)
 	}
 }
